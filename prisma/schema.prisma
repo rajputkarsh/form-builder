@@ -17,8 +17,8 @@ model Form {
   createdAt   DateTime @default(now())
   published   Boolean  @default(false)
   name        String
-  description String   @db.Text @default("")
-  content     String   @db.Text @default("[]")
+  description String   @db.Text
+  content     String   @db.Text
 
   visits      Int @default(0)
   submissions Int @default(0)
