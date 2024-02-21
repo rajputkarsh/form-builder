@@ -58,7 +58,7 @@ export async function CreateForm(data: formSchemaType) {
     data: {
       userId: user.id,
       name,
-      description || "",
+      description: description || "",
       content: "[]",
     },
   });
