@@ -21,7 +21,7 @@ async function FormDetailPage({
   };
 }) {
   const { id } = params;
-  const form = await GetFormById(Number(id));
+  const form = await GetFormById(id);
   if (!form) {
     throw new Error("form not found");
   }
@@ -100,14 +100,14 @@ type Row = { [key: string]: string } & {
   submittedAt: Date;
 };
 
-async function SubmissionsTable({ id }: { id: number }) {
+async function SubmissionsTable({ id }: { id: string }) {
   const form = await GetFormWithSubmissions(id);
 
   if (!form) {
     throw new Error("form not found");
   }
 
-  const formElements = JSON.parse(form.content) as FormElementInstance[];
+  const formElements = JSON.parse(form.content || "[]") as FormElementInstance[];
   const columns: {
     id: string;
     label: string;
