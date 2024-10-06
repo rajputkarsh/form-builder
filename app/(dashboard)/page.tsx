@@ -137,7 +137,7 @@ async function FormCards() {
   const forms = await GetForms();
   return (
     <>
-      {forms.map((form) => (
+      {(forms || []).map((form) => (
         <FormCard key={form.id} form={form} />
       ))}
     </>
